@@ -1,136 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Act 04</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Layout</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
     />
-    <head>
-      <link rel="icon" href="../LOGO.png" type="image/png">
-  </head>
-  
     <style>
       body {
-        margin: 0;
-        padding: 0;
-        background-color: #181818;
-        direction: ltr;
-        overflow-x: hidden;
+        font-family: sans-serif;
       }
-      .card {
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        background-color: #fff;
-        margin-top: 50px;
-        padding: 20px;
-        width: 90%;
-        max-width: 1200px;
+      .hero {
+        background-color: #f8f9fa;
+        padding: 100px 0;
+        text-align: center;
+        color: white;
+        background-image: url("main.jpg");
+        background-size: cover;
+        background-position: center;
       }
-      .card-header {
-        background-color: #333;
-        color: #fff;
-        font-weight: bold;
-        font-size: 1.25rem;
-        border-radius: 15px 15px 0 0;
-        padding: 15px;
+      .hero h1 {
+        font-size: 2.5rem;
       }
-      .img-fluid {
-        margin: 10px;
+      .projects-section {
+        padding: 60px 0;
+        background-color: #e9ecef;
       }
-      .img-large {
+      .project-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      .project-card img {
         width: 100%;
         height: auto;
       }
+      .project-card-body {
+        padding: 20px;
+      }
+      .project-card-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .navbar {
+        background-color: #fff;
+        padding: 20px 0;
+      }
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .footer {
+        background-color: #343a40;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .btn-primary:hover {
+        background-color: #7e3aff;
+        transform: translateY(-3px);
+      }
+      /* Applies to all scrollable elements */
       ::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
+        height: 8px;
       }
 
       ::-webkit-scrollbar-track {
-        background-color: #333;
+        background: #f1f1f1;
+        border-radius: 10px;
       }
 
       ::-webkit-scrollbar-thumb {
-        background-color: #888;
+        background: #888;
         border-radius: 10px;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background-color: #555;
-      }
-
-      ::-webkit-scrollbar-corner {
-        background-color: #333;
+        background: #555;
       }
     </style>
   </head>
   <body>
-
-    
-
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid justify-content-center">
-        <a href="../index.html" class="btn btn-outline-light">Back</a>
+    <nav class="navbar navbar-expand-lg" style="background-color: #e2e9ee">
+      <div class="container">
+        <a href="../index.html" class="btn btn-primary"> Back</a>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        ></div>
       </div>
     </nav>
 
-    <div class="row justify-content-center mb-5">
-      <div class="card col-md-8 col-lg-6">
-        <div class="card-header text-center">Activity</div>
-        <div class="card-body">
-          <div class="row g-1">
-         
-            <div class="col-md-6">
-              <img
-                src="Model.png"
-                alt="Model"
-                class="img-fluid rounded-3 img-large"
-              />
-            </div>
+    <div class="hero">
+      <div class="container">
+        <h1>PHILIPPINES</h1>
+      </div>
+    </div>
 
-            
-            <div class="col-md-6 mt-2" style="margin-top: -5px">
-              <img src="Title2.png" alt="Title" class="img-fluid rounded-3" />
-            </div>
-
-           
-
-            <div class="col-md-6">
-          
-              <div class="h5 text-primary font-weight-bold mb-3">
-                Operating times
+    <div class="projects-section">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="project-card">
+              <img src="2.jpg" class="card-img-top" alt="Project Image" />
+              <div class="project-card-body">
+                <h5 class="project-card-title">Mayon Volcano</h5>
+                <p class="card-text">
+                  Mayon, also known as Mount Mayon and Mayon Volcano is an
+                  active stratovolcano in the province of Albay in Bicol,
+                  Philippines.
+                </p>
               </div>
-
-              <ul class="list-unstyled">
-                <li><strong>Standby time:</strong> Up to 27 days</li>
-                <li><strong>Talk time:</strong> Up to 6.5 hours</li>
-                <li><strong>MP3 playback:</strong> Up to 40 hours</li>
-              </ul>
             </div>
-            <div class="col-md-6">
-           
-              <div class="h5 text-primary font-weight-bold mb-3">
-                Key features
+          </div>
+          <div class="col">
+            <div class="project-card">
+              <img src="3.jpg" class="card-img-top" alt="..." />
+              <div class="project-card-body">
+                <h5 class="project-card-title">Chocolate Hills</h5>
+                <p class="card-text">
+                  The Chocolate Hills are a geological formation in the
+                  Philippine province of Bohol.
+                </p>
               </div>
-
-              <ul class="list-unstyled">
-                <li><strong>3g enabled</li>
-                <li><strong>Classic Snake game</li>
-                <li><strong>Access popular web content with the Opera Mini Browser</li>
-              </ul>
             </div>
-
-            <div class="row g-1">
-              <div class="col-md-12">
-                <img
-                  src="Phones.png"
-                  alt="Phones"
-                  class="img-fluid rounded-3"
-                />
+          </div>
+          <div class="col">
+            <div class="project-card">
+              <img src="1.jpg" class="card-img-top" alt="..." />
+              <div class="project-card-body">
+                <h5 class="project-card-title">El Nido, Palawan</h5>
+                <p class="card-text">
+                  El Nido is a Philippine municipality on Palawan island. It’s
+                  known for white-sand beaches, coral reefs and as the gateway
+                  to the Bacuit archipelago, a group of islands with steep karst
+                  cliffs.
+                </p>
               </div>
             </div>
           </div>
@@ -138,10 +149,12 @@
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; Larino</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

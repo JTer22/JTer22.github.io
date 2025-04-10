@@ -1,15 +1,19 @@
 body {
-  background-color: #ffffff;
-  color: #333;
+  background-color: #ffffff; /* fallback for older browsers */
+
+  
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
 }
+
 
 .row-header {
   background-color: #ffffff;
   width: 100%;
   padding: 2rem 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-image: radial-gradient(circle 341px at 10% 20%, rgba(132, 94, 194, 1) 0%, rgba(196, 243, 251, 1) 90%);
+  color: #333;
 }
 
 .h1 {
@@ -91,3 +95,22 @@ body {
     margin-bottom: 2rem;
   }
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
