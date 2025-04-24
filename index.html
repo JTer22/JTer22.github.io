@@ -16,12 +16,26 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row-header rounded-3">
+      <div class="container-fluid">
         <div
-          class="h1 text-center"
-          style="color: #3a57ff; font-family: sans-serif"
+          class="row-header rounded-3 d-flex justify-content-between align-items-center"
         >
-          HOME
+          <div class="col-auto">
+            <button class="menu-btn" onclick="openSidebar()">☰</button>
+          </div>
+          <div
+            class="h1 text-center mb-0"
+            style="color: #3a57ff; font-family: sans-serif"
+          >
+            HOME
+          </div>
+          <div class="col-auto"></div>
+        </div>
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()"
+            >×</a
+          >
+          <a href="../index.html">Profile</a>
         </div>
       </div>
 
@@ -51,14 +65,19 @@
 
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
+              <img
+                src="/Act06/img/Gallery.png"
+                class="card-img-top"
+                alt="..."
+              />
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Act 3</p>
-                <a href="#" class="btn btn-primary">View</a>
+                <h5 class="card-title">A06</h5>
+
+                <a href="/Act06/index.html" class="btn btn-primary">View</a>
               </div>
             </div>
           </div>
+
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card">
               <img src="..." class="card-img-top" alt="..." />
@@ -94,3 +113,14 @@
     </div>
   </body>
 </html>
+<script>
+  function openSidebar() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.querySelector(".main-content").classList.add("sidebar-open");
+  }
+
+  function closeSidebar() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.querySelector(".main-content").classList.remove("sidebar-open");
+  }
+</script>

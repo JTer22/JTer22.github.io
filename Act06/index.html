@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: rgb(19, 25, 46);
+      }
+     
+      .rounded-image {
+        border-radius: 40px;
+        overflow: hidden;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .sidebar {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #343a40;
+        overflow-x: hidden;
+        padding-top: 50px;
+        transition: 0.5s;
+        z-index: 1050;
+      }
+
+      .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #f8f9fa;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidebar a:hover {
+        color: #ced4da;
+      }
+
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        color: #f8f9fa;
+        text-decoration: none;
+      }
+
+      .main-content {
+        transition: margin-left 0.5s;
+        padding-left: 0;
+      }
+
+      .sidebar-open .main-content {
+        padding-left: 250px;
+      }
+
+      .menu-btn {
+        background: none;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .menu-btn:focus {
+        outline: none;
+      }
+      .menu-btn:hover {
+        transform: translateY(-3px);
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="row py-3 bg-dark fixed-top">
+        <div class="col-auto me-auto">
+          <button class="menu-btn" onclick="openSidebar()">☰ Menu</button>
+        </div>
+        <div class="col text-center">
+          <div class="h3 text-white">Gallery</div>
+        </div>
+        <div class="col-auto px-5"></div>
+      </nav>
+
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()"
+          >×</a
+        >
+        <a href="../index.html">Home</a>
+      </div>
+
+      <div class="Container mt-5 p-3">
+        <div class="row g-3" id="image-container"></div>
+      </div>
+      
+      <script>
+        // Image data array
+        const images = [
+          { src: "img/dog.jpg", alt: "Dog" },
+          { src: "img/catdog.png", alt: "Cat and Dog" },
+          { src: "img/cat.png", alt: "Cat" },
+          { src: "img/dinosaur.jpg", alt: "Tiger" },
+          { src: "img/tiger.png", alt: "Dog" },
+          { src: "img/catdog.png", alt: "Cat and Dog" },
+          { src: "img/cat.png", alt: "Cat" },
+          { src: "img/tiger.png", alt: "Tiger" },
+          { src: "img/dog.jpg", alt: "Dog" },
+          { src: "img/catdog.png", alt: "Cat and Dog" },
+          { src: "img/cat.png", alt: "Cat" },
+          { src: "img/dinosaur.jpg", alt: "Tiger" },
+          { src: "img/tiger.png", alt: "Dog" },
+          { src: "img/catdog.png", alt: "Cat and Dog" },
+          { src: "img/cat.png", alt: "Cat" },
+          { src: "img/tiger.png", alt: "Tiger" }
+          
+        ];
+      
+        // Get the container element
+        const container = document.getElementById("image-container");
+      
+        // Loop through the array and create image elements
+        images.forEach((image) => {
+          const colDiv = document.createElement("div");
+          colDiv.classList.add("col-12", "col-sm-6", "col-md-6", "col-lg-3");
+      
+          const imgElement = document.createElement("img");
+          imgElement.src = image.src;
+          imgElement.alt = image.alt;
+          imgElement.classList.add("img-fluid", "w-100", "rounded-image");
+          imgElement.style.height = "100%";
+          imgElement.style.objectFit = "cover";
+      
+          // Append the image to the div, and then append the div to the container
+          colDiv.appendChild(imgElement);
+          container.appendChild(colDiv);
+        });
+      </script>
+      
+      <footer class="footer">
+        <div class="row">
+        <div class="col text-center" style="background-color: #1a2027; color: #ced4da;">
+          <p>&copy; Larino</p>
+        </div>
+      </div>
+      </footer>
+
+    <script>
+      function openSidebar() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.querySelector(".main-content").classList.add("sidebar-open");
+      }
+
+      function closeSidebar() {
+        document.getElementById("mySidebar").style.width = "0";
+        document
+          .querySelector(".main-content")
+          .classList.remove("sidebar-open");
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
