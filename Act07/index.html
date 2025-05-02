@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dota Hero Cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()"
+        >×</a
+      >
+      <a href="../index.html">Home</a>
+    </div>
+
+    <!-- Main content ito -->
+    <div class="main-content">
+      <div class="container-hero">
+        <div class="row align-items-center py-3">
+          <div class="col-auto">
+            <button class="menu-btn" onclick="openSidebar()">☰ Menu</button>
+          </div>
+          <div class="col text-center">
+            <h1 class="text-white mb-0" style="font-family: 'Cinzel', serif">
+              HERO
+            </h1>
+          </div>
+        </div>
+
+        <div id="loading-overlay">
+          <div class="spinner"></div>
+          <div id="loading-text">Loading Dota Heroes...</div>
+        </div>
+
+        <!-- Hero cards container -->
+        <div class="row justify-content-center" id="card-container"></div>
+
+        <!-- Pagination ito -->
+        <div id="pagination-controls" class="pagination-container"></div>
+      </div>
+    </div>
+
+    <script>
+      const cardContainer = document.getElementById("card-container");
+      const loadingOverlay = document.getElementById("loading-overlay");
+      const paginationControls = document.getElementById("pagination-controls");
+      const HEROES_PER_PAGE = 6;
+      let currentPage = 1;
+      let heroes = [];
+
+      async function fetchDotaHeroes() {
+        try {
+          const response = await fetch("https://api.opendota.com/api/heroes");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching Dota heroes:", error);
+        }
+      }
+
+      function renderPaginationControls(totalPages) {
+        const paginationItems = [];
+
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+
+        if (startPage > 1) {
+          paginationItems.push(
+            `<button class="page-btn" onclick="changePage(1)">1</button>`
+          );
+          paginationItems.push(`<span class="page-btn">...</span>`);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          paginationItems.push(`
+            <button class="page-btn ${
+              currentPage === i ? "active" : ""
+            }" onclick="changePage(${i})">${i}</button>
+          `);
+        }
+
+        if (endPage < totalPages) {
+          paginationItems.push(`<span class="page-btn">...</span>`);
+          paginationItems.push(
+            `<button class="page-btn" onclick="changePage(${totalPages})">${totalPages}</button>`
+          );
+        }
+
+        paginationControls.innerHTML = `
+          <button class="page-btn prev-btn" onclick="changePage(currentPage - 1)" ${
+            currentPage === 1 ? "disabled" : ""
+          }>Previous</button>
+          ${paginationItems.join("")}
+          <button class="page-btn next-btn" onclick="changePage(currentPage + 1)" ${
+            currentPage === totalPages ? "disabled" : ""
+          }>Next</button>
+        `;
+      }
+
+      function renderCards() {
+        cardContainer.innerHTML = "";
+
+        const start = (currentPage - 1) * HEROES_PER_PAGE;
+        const end = start + HEROES_PER_PAGE;
+        const visibleHeroes = heroes.slice(start, end);
+
+        visibleHeroes.forEach((hero) => {
+          const heroName = hero.name.replace("npc_dota_hero_", "");
+          const imageUrl = `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/heroes/${heroName}_full.png`;
+
+          const card = document.createElement("div");
+          card.className = "col-12 col-sm-6 col-md-4 col-lg-4 px-2 mt-3 d-flex";
+
+          card.innerHTML = `
+            <div class="hero-card rounded-4 shadow-sm w-100">
+              <img src="${imageUrl}" alt="${hero.localized_name}" class="hero-img">
+              <div class="hero-name-overlay">${hero.localized_name}</div>
+            </div>
+          `;
+
+          cardContainer.appendChild(card);
+        });
+
+        const totalPages = Math.ceil(heroes.length / HEROES_PER_PAGE);
+        renderPaginationControls(totalPages);
+      }
+
+      function changePage(page) {
+        const totalPages = Math.ceil(heroes.length / HEROES_PER_PAGE);
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        renderCards();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      async function init() {
+        loadingOverlay.style.display = "flex";
+        heroes = await fetchDotaHeroes();
+        if (heroes) {
+          loadingOverlay.style.display = "none";
+          renderCards();
+        }
+      }
+
+      init();
+    </script>
+
+    <script>
+      function openSidebar() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.querySelector(".main-content").classList.add("sidebar-open");
+      }
+
+      function closeSidebar() {
+        document.getElementById("mySidebar").style.width = "0";
+        document
+          .querySelector(".main-content")
+          .classList.remove("sidebar-open");
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
