@@ -1,130 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TERWEB</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TERWEB | Homepage</title>
+
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <head>
-      <link rel="icon" href="LOGO.png" type="image/png" />
-    </head>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="icon" href="/LOGO.png" type="image/png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
   </head>
-  <body>
-    <div class="container-fluid">
-      <div class="container-fluid">
+
+  <body class="bg-white text-dark">
+    <!-- Header ITO -->
+    <header class>
+      <nav class="navbar navbar-expand bg-light">
         <div
-          class="row-header rounded-3 d-flex justify-content-between align-items-center"
+          class="container d-flex justify-content-start align-items-center flex-nowrap"
         >
-          <div class="col-auto">
-            <button class="menu-btn" onclick="openSidebar()">☰</button>
-          </div>
-          <div
-            class="h1 text-center mb-0"
-            style="color: #3a57ff; font-family: sans-serif"
-          >
-            HOME
-          </div>
-          <div class="col-auto"></div>
+          <a class="navbar-brand fw-bold me-4" href="#">TERWEB</a>
+          <ul class="navbar-nav d-flex flex-row gap-3 mb-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#activities-section">Activities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-section">About Me</a>
+            </li>
+          </ul>
         </div>
-        <div id="mySidebar" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()"
-            >×</a
-          >
-          <a href="../index.html">Profile</a>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h1 class="display-4 fw-bold hero-title animate-slide-in">
+            Web<br />Development<br />Activities
+          </h1>
         </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img src="Act04/brand.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">A04</h5>
-                <p class="card-text"></p>
-                <a href="../Act04" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img src="Act05/Ph.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">A05</h5>
-                <p class="card-text"></p>
-                <a href="Act05/index.html" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img
-                src="/Act06/img/Gallery.png"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">A06</h5>
-
-                <a href="/Act06/index.html" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img
-                src="/Act07/background2.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">A07</h5>
-
-                <a href="/Act07/index.html" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Act 3</p>
-                <a href="#" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Act 3</p>
-                <a href="#" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
+        <div class="col-md-6">
+          <p class="lead text-secondary animate-slide-in">
+            I am a student with a passion for web development, investigating the
+            most recent tools and technologies for creating responsive,
+            user-friendly websites.
+          </p>
         </div>
       </div>
+      <div class="mt-5">
+        <a
+          href="#activities-section"
+          class="btn btn-primary btn-lg px-5 py-3 rounded-pill btn-modern animate-slide-in"
+        >
+          View All Activities
+        </a>
+      </div>
+    </main>
+
+    <!-- Carousel Section -->
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="background1.png"
+            class="d-block w-100 carousel-img"
+            alt="First slide"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="Act05/Ph.png"
+            class="d-block w-100 carousel-img"
+            alt="Second slide"
+          />
+          <div class="carousel-caption d-none d-md-block text-center">
+            <h5>Activities</h5>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="Act06/img/Gallery.png"
+            class="d-block w-100 carousel-img"
+            alt="Third slide"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+
+    <!-- Activities Section -->
+    <div class="container mt-3" id="activities-section">
+      <div class="row g-3" id="activity-cards"></div>
+    </div>
+
+    <footer class="container py-5 text-center">
+      <p>&copy; 2025 LARINO. All Rights Reserved <br /></p>
+      FOR EDUCATIONAL PURPOSES ONLY
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const activityData = [
+          { img: "TERWEB.png", title: "A04", link: "Act04/index.html" },
+          { img: "Act05/Ph.png", title: "A05", link: "Act05/index.html" },
+          {
+            img: "/Act06/img/Gallery.png",
+            title: "A06",
+            link: "/Act06/index.html",
+          },
+          {
+            img: "/Act07/background2.jpg",
+            title: "A07",
+            link: "/Act07/index.html",
+          },
+          { img: "...", title: "Card title", text: "Act 3", link: "#" },
+          { img: "...", title: "Card title", text: "Act 3", link: "#" },
+        ];
+
+        const container = document.getElementById("activity-cards");
+
+        activityData.forEach(({ img, title, link, text = "" }) => {
+          const col = document.createElement("div");
+          col.className = "col-12 col-sm-6 col-md-4 col-lg-3";
+
+          col.innerHTML = `
+            <div class="card">
+              <img src="${img}" class="card-img-top" alt="${title}" />
+              <div class="card-overlay">
+                <h5 class="card-title">${title}</h5>
+                ${text ? `<p class="card-text">${text}</p>` : ""}
+                <a href="${link}" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          `;
+          container.appendChild(col);
+        });
+
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            cards.forEach((otherCard) => {
+              if (otherCard !== card) {
+                otherCard.classList.add("shaded");
+              }
+            });
+          });
+
+          card.addEventListener("mouseleave", () => {
+            cards.forEach((otherCard) => {
+              otherCard.classList.remove("shaded");
+            });
+          });
+        });
+      });
+    </script>
+
+    <section id="about-section">
+      <div class="row">
+        <div class="col text-center py-4">
+          <a
+            href="https://github.com/JTer22"
+            target="_blank"
+            class="text-dark fs-3"
+            aria-label="GitHub Profile"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
-<script>
-  function openSidebar() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.querySelector(".main-content").classList.add("sidebar-open");
-  }
-
-  function closeSidebar() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.querySelector(".main-content").classList.remove("sidebar-open");
-  }
-</script>
