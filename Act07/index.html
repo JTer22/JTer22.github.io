@@ -124,6 +124,7 @@
 
           card.innerHTML = `
             <div class="hero-card rounded-4 shadow-sm w-100">
+              <a href="view.html?heroId=${hero.id}" class="hero-link">
               <img src="${imageUrl}" alt="${hero.localized_name}" class="hero-img">
               <div class="hero-name-overlay">${hero.localized_name}</div>
             </div>
