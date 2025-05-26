@@ -28,9 +28,11 @@
 
 .main-content {
 	width: 100%;
+	 height: 1000px;
 	position: absolute;
 	z-index: 200;
 }
+
 
 /*ADD OR REMOVE LAYERS AS NEEDED*/
 
@@ -52,6 +54,9 @@
 
 #keyart-4 {
 	background-image: url(img/parallax4.png);
+}
+#keyart-5 {
+	background-image: url(img/parallax5.png);
 }
 
 
